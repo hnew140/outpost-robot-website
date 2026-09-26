@@ -4,9 +4,9 @@ const CONFIG = {
   discordUrl: "https://discord.gg/kXcv6tB7h",
   steamUrl: "",
   questUrl: "",
-  // Mailchimp/Brevo embedded-form action URL. Leave empty to run in demo mode
-  // (the form validates and shows a success message but sends nothing).
-  emailFormAction: "",
+  // MailerLite embedded form's "Share url" (Forms > Embedded forms > your form > Share url).
+  // Leave empty to hide the signup form.
+  mailerliteFormUrl: "https://preview.mailerlite.io/forms/2662876/199687236661282228/share",
 };
 
 document.getElementById("year").textContent = new Date().getFullYear();
@@ -80,45 +80,10 @@ wireLink("steamLink", CONFIG.steamUrl);
 wireLink("questLink", CONFIG.questUrl);
 wireLink("discordLink", CONFIG.discordUrl);
 
-// --- Email form ---
-const emailForm = document.getElementById("emailForm");
-const emailFeedback = document.getElementById("emailFeedback");
-const feedbackText = {
-  fr: { ok: "Merci ! Tu seras prévenu au lancement.", err: "Adresse email invalide.", demo: "Merci ! (mode démo — connecte un service d'emailing dans script.js pour collecter réellement les adresses)" },
-  en: { ok: "Thanks! You'll be notified at launch.", err: "Invalid email address.", demo: "Thanks! (demo mode — wire up an email service in script.js to actually collect addresses)" },
-};
-
-emailForm.addEventListener("submit", async (event) => {
-  event.preventDefault();
-  const email = document.getElementById("emailInput").value.trim();
-  const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  emailFeedback.classList.remove("is-error");
-
-  if (!isValid) {
-    emailFeedback.textContent = feedbackText[currentLang].err;
-    emailFeedback.classList.add("is-error");
-    return;
-  }
-
-  if (!CONFIG.emailFormAction) {
-    emailFeedback.textContent = feedbackText[currentLang].demo;
-    emailForm.reset();
-    return;
-  }
-
-  try {
-    // no-cors: most embedded-signup endpoints (Mailchimp, Brevo) don't return
-    // CORS headers, so the response is opaque — we treat any non-throw as success.
-    await fetch(CONFIG.emailFormAction, {
-      method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams({ EMAIL: email }),
-    });
-    emailFeedback.textContent = feedbackText[currentLang].ok;
-    emailForm.reset();
-  } catch (err) {
-    emailFeedback.textContent = feedbackText[currentLang].err;
-    emailFeedback.classList.add("is-error");
-  }
-});
+// --- Email form (MailerLite hosted form, embedded via iframe) ---
+const mailerliteFrame = document.getElementById("mailerliteFrame");
+if (CONFIG.mailerliteFormUrl) {
+  mailerliteFrame.src = CONFIG.mailerliteFormUrl;
+} else {
+  mailerliteFrame.closest(".email-section").style.display = "none";
+}
