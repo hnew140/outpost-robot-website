@@ -1,0 +1,309 @@
+:root {
+  --bg: #05060c;
+  --bg-panel: #0d1120;
+  --accent: #ff5a36;
+  --accent-2: #35e0d0;
+  --text: #eef1f8;
+  --text-dim: #9aa3b8;
+  --border: rgba(255, 255, 255, 0.1);
+  --font-display: 'Orbitron', sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.stars {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    radial-gradient(1px 1px at 10% 20%, #fff 100%, transparent),
+    radial-gradient(1px 1px at 80% 10%, #fff 100%, transparent),
+    radial-gradient(1px 1px at 60% 70%, #fff 100%, transparent),
+    radial-gradient(2px 2px at 30% 80%, #fff 100%, transparent),
+    radial-gradient(1px 1px at 90% 60%, #fff 100%, transparent),
+    radial-gradient(1px 1px at 45% 40%, #fff 100%, transparent),
+    radial-gradient(1px 1px at 20% 55%, #fff 100%, transparent),
+    radial-gradient(2px 2px at 75% 85%, #fff 100%, transparent);
+  background-repeat: no-repeat;
+  opacity: 0.5;
+}
+
+.radar-bg {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 140vmax;
+  height: 140vmax;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, rgba(53, 224, 208, 0.12), transparent 25%);
+  animation: spin 10s linear infinite;
+  opacity: 0.4;
+}
+
+@keyframes spin {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.topbar, main, footer {
+  position: relative;
+  z-index: 1;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 1.5rem 0;
+}
+
+.brand {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  font-size: 1rem;
+}
+
+.brand span { color: var(--accent); }
+
+.lang-toggle {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.lang-toggle:hover { border-color: var(--accent-2); color: var(--accent-2); }
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 1.25rem 2rem;
+  max-width: 720px;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+}
+
+.kicker {
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  color: var(--accent-2);
+  font-weight: 600;
+  margin: 0 0 0.75rem;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.4rem, 9vw, 4.5rem);
+  margin: 0 0 1.25rem;
+  letter-spacing: 0.03em;
+  text-shadow: 0 0 30px rgba(255, 90, 54, 0.45);
+}
+
+.tagline {
+  font-size: clamp(1.05rem, 3vw, 1.3rem);
+  font-weight: 600;
+  margin: 0 0 0.75rem;
+  color: var(--text);
+}
+
+.subtext {
+  color: var(--text-dim);
+  max-width: 46ch;
+  margin: 0 auto 2.5rem;
+  line-height: 1.5;
+}
+
+.countdown {
+  width: 100%;
+}
+
+.countdown-label {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0 0 0.9rem;
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.countdown-unit {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.9rem 0.25rem;
+}
+
+.countdown-unit span {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 5vw, 1.8rem);
+  font-weight: 700;
+  color: var(--accent-2);
+}
+
+.countdown-unit small {
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.email-section, .links-section {
+  width: 100%;
+  margin-top: 3.5rem;
+}
+
+.email-section h2, .links-section h2 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  margin: 0 0 0.5rem;
+}
+
+.email-section p {
+  color: var(--text-dim);
+  margin: 0 0 1.25rem;
+}
+
+.email-form {
+  display: flex;
+  gap: 0.6rem;
+  max-width: 420px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.email-form input {
+  flex: 1 1 220px;
+  min-width: 0;
+  padding: 0.85rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-panel);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+}
+
+.email-form input:focus {
+  outline: none;
+  border-color: var(--accent-2);
+}
+
+.email-form button {
+  padding: 0.85rem 1.4rem;
+  border-radius: 8px;
+  border: none;
+  background: var(--accent);
+  color: #0a0a0a;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.email-form button:hover { background: #ff7355; transform: translateY(-1px); }
+
+.email-feedback {
+  min-height: 1.4em;
+  margin-top: 0.9rem;
+  font-size: 0.9rem;
+  color: var(--accent-2);
+}
+
+.email-feedback.is-error { color: var(--accent); }
+
+.links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.9rem;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.link-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 1.1rem 0.75rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg-panel);
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color 0.2s ease, transform 0.15s ease;
+}
+
+.link-card:not(.is-disabled):hover {
+  border-color: var(--accent-2);
+  transform: translateY(-2px);
+}
+
+.link-card.is-disabled {
+  opacity: 0.5;
+  cursor: default;
+  pointer-events: none;
+}
+
+.link-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.link-status {
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--text-dim);
+  font-size: 0.8rem;
+}
+
+footer p { margin: 0.25rem 0; }
+
+@media (max-width: 420px) {
+  .countdown-grid { gap: 0.5rem; }
+  .email-form { flex-direction: column; }
+  .email-form button { width: 100%; }
+}

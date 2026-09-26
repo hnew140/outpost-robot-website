@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Outpost Robot — Coming Soon</title>
+<meta name="description" content="Outpost Robot: a VR shooter where you defend a lunar outpost from an alien invasion. Launching January 2027.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="radar-bg" aria-hidden="true"></div>
+<div class="stars" aria-hidden="true"></div>
+
+<header class="topbar">
+  <div class="brand">OUTPOST<span>ROBOT</span></div>
+  <button id="langToggle" class="lang-toggle" type="button" aria-label="Switch language">EN</button>
+</header>
+
+<main>
+  <section class="hero">
+    <p class="kicker" data-fr="JEU VR — BIENTÔT DISPONIBLE" data-en="VR GAME — COMING SOON">JEU VR — BIENTÔT DISPONIBLE</p>
+    <h1 class="title">OUTPOST ROBOT</h1>
+    <p class="tagline" data-fr="Seul sur la Lune. Un robot. Des vagues d'ennemis. Résistez jusqu'au bout."
+                        data-en="Alone on the Moon. One robot. Endless waves. Hold the line.">
+      Seul sur la Lune. Un robot. Des vagues d'ennemis. Résistez jusqu'au bout.
+    </p>
+    <p class="subtext" data-fr="Un shooter VR immersif où vous pilotez un robot de défense lunaire face à une invasion extraterrestre."
+                        data-en="An immersive VR shooter where you pilot a lunar defense robot against an alien invasion.">
+      Un shooter VR immersif où vous pilotez un robot de défense lunaire face à une invasion extraterrestre.
+    </p>
+
+    <div class="countdown" id="countdown" aria-live="polite">
+      <p class="countdown-label" data-fr="Lancement dans" data-en="Launching in">Lancement dans</p>
+      <div class="countdown-grid">
+        <div class="countdown-unit"><span id="cd-days">--</span><small data-fr="jours" data-en="days">jours</small></div>
+        <div class="countdown-unit"><span id="cd-hours">--</span><small data-fr="heures" data-en="hours">heures</small></div>
+        <div class="countdown-unit"><span id="cd-minutes">--</span><small data-fr="min" data-en="min">min</small></div>
+        <div class="countdown-unit"><span id="cd-seconds">--</span><small data-fr="sec" data-en="sec">sec</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="email-section">
+    <h2 data-fr="Rejoignez la liste de lancement" data-en="Join the launch list">Rejoignez la liste de lancement</h2>
+    <p data-fr="Soyez prévenu dès la sortie et recevez les nouvelles du développement." data-en="Get notified at launch and follow development updates.">
+      Soyez prévenu dès la sortie et recevez les nouvelles du développement.
+    </p>
+    <form id="emailForm" class="email-form" novalidate>
+      <input type="email" id="emailInput" name="email" required
+             data-fr-placeholder="Votre adresse email" data-en-placeholder="Your email address"
+             placeholder="Votre adresse email" aria-label="Email">
+      <button type="submit" data-fr="M'inscrire" data-en="Notify me">M'inscrire</button>
+    </form>
+    <p id="emailFeedback" class="email-feedback" role="status"></p>
+  </section>
+
+  <section class="links-section">
+    <h2 data-fr="Suivez le projet" data-en="Follow the project">Suivez le projet</h2>
+    <div class="links-grid">
+      <a id="steamLink" class="link-card is-disabled" href="#" target="_blank" rel="noopener">
+        <span class="link-name">Steam</span>
+        <span class="link-status" data-fr="Bientôt disponible" data-en="Coming soon">Bientôt disponible</span>
+      </a>
+      <a id="questLink" class="link-card is-disabled" href="#" target="_blank" rel="noopener">
+        <span class="link-name">Meta Quest</span>
+        <span class="link-status" data-fr="Bientôt disponible" data-en="Coming soon">Bientôt disponible</span>
+      </a>
+      <a id="discordLink" class="link-card is-disabled" href="#" target="_blank" rel="noopener">
+        <span class="link-name">Discord</span>
+        <span class="link-status" data-fr="Bientôt disponible" data-en="Coming soon">Bientôt disponible</span>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p data-fr="Développé avec Garuda Production." data-en="Developed with Garuda Production.">Développé avec Garuda Production.</p>
+  <p>&copy; <span id="year"></span> Outpost Robot</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
