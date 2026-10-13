@@ -172,7 +172,7 @@ main {
   transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
 }
 
-.cta:not(.is-disabled):hover { transform: translateY(-1px); }
+.cta:hover { transform: translateY(-1px); }
 
 .cta-primary {
   background: var(--accent);
@@ -180,19 +180,6 @@ main {
 }
 
 .cta-primary:hover { background: #ff7355; }
-
-.cta-secondary {
-  border: 1px solid var(--border);
-  color: var(--text);
-  background: var(--bg-panel);
-}
-
-.cta-secondary:not(.is-disabled):hover { border-color: var(--accent-2); }
-
-.cta.is-disabled {
-  opacity: 0.5;
-  pointer-events: none;
-}
 
 .email-section, .links-section {
   width: 100%;

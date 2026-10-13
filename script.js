@@ -54,7 +54,6 @@ function wireLink(elementId, url, activeLabel) {
 wireLink("steamLink", CONFIG.steamUrl, { fr: "Wishlist", en: "Wishlist" });
 wireLink("questLink", CONFIG.questUrl, { fr: "Wishlist", en: "Wishlist" });
 wireLink("discordLink", CONFIG.discordUrl, { fr: "Rejoindre", en: "Join" });
-wireLink("heroDiscord", CONFIG.discordUrl);
 applyLang(currentLang);
 
 // --- Email form (MailerLite hosted form, embedded via iframe) ---
