@@ -39,18 +39,23 @@ document.getElementById("langToggle").addEventListener("click", () => {
 applyLang(currentLang);
 
 // --- Link cards (Steam / Meta Quest / Discord) ---
-function wireLink(elementId, url) {
+function wireLink(elementId, url, activeLabel) {
   const el = document.getElementById(elementId);
-  if (url) {
-    el.href = url;
-    el.classList.remove("is-disabled");
+  if (!url) return;
+  el.href = url;
+  el.classList.remove("is-disabled");
+  const status = el.querySelector(".link-status");
+  if (status && activeLabel) {
+    status.setAttribute("data-fr", activeLabel.fr);
+    status.setAttribute("data-en", activeLabel.en);
   }
 }
 
-wireLink("steamLink", CONFIG.steamUrl);
-wireLink("questLink", CONFIG.questUrl);
-wireLink("discordLink", CONFIG.discordUrl);
+wireLink("steamLink", CONFIG.steamUrl, { fr: "Wishlist", en: "Wishlist" });
+wireLink("questLink", CONFIG.questUrl, { fr: "Wishlist", en: "Wishlist" });
+wireLink("discordLink", CONFIG.discordUrl, { fr: "Rejoindre", en: "Join" });
 wireLink("heroDiscord", CONFIG.discordUrl);
+applyLang(currentLang);
 
 // --- Email form (MailerLite hosted form, embedded via iframe) ---
 const mailerliteFrame = document.getElementById("mailerliteFrame");
