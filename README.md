@@ -6,7 +6,6 @@ Landing page statique (HTML/CSS/JS, aucune dépendance à installer).
 
 Tout se passe en haut de `script.js`, dans le bloc `CONFIG` :
 
-- `launchDateISO` — date/heure de lancement utilisée par le compte à rebours.
 - `discordUrl`, `steamUrl`, `questUrl` — laisser vide tant que le lien n'existe pas (le bouton reste grisé "Bientôt disponible"), renseigner l'URL une fois prête pour l'activer automatiquement.
 - `emailFormAction` — URL du formulaire d'inscription Mailchimp ou Brevo. Vide = mode démo (le formulaire valide l'email et affiche un message de confirmation mais n'envoie rien).
   - Mailchimp : récupère l'URL "action" de ton formulaire embarqué (Audience > Signup forms > Embedded forms).
