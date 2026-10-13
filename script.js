@@ -1,6 +1,6 @@
 // Fill these in as they become available — see README.md for details on each.
 const CONFIG = {
-  discordUrl: "https://discord.gg/kXcv6tB7h",
+  discordUrl: "https://discord.gg/fBwEQkXWgV",
   steamUrl: "",
   questUrl: "",
   // MailerLite embedded form's "Share url" (Forms > Embedded forms > your form > Share url).
