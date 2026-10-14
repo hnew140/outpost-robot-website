@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://outpostrobot.com/sitemap.xml

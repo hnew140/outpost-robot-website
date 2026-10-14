@@ -1,3 +1,19 @@
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('fonts/inter-latin.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Orbitron';
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url('fonts/orbitron-latin.woff2') format('woff2');
+}
+
 :root {
   --bg: #05060c;
   --bg-panel: #0d1120;
@@ -84,10 +100,14 @@ body {
 
 .brand span { color: var(--accent); }
 
+a.brand { color: var(--text); text-decoration: none; }
+
 .lang-toggle {
   background: transparent;
   border: 1px solid var(--border);
   color: var(--text);
+  min-width: 44px;
+  min-height: 44px;
   padding: 0.4rem 0.9rem;
   border-radius: 999px;
   font-family: var(--font-body);
@@ -236,10 +256,12 @@ main {
 }
 
 .link-card.is-disabled {
-  opacity: 0.5;
+  border-style: dashed;
   cursor: default;
   pointer-events: none;
 }
+
+.link-card.is-disabled .link-name { color: var(--text-dim); }
 
 .link-name {
   font-weight: 700;
